@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">StudyCards</string>
+    <string name="welcome_text">Welcome to StudyCards, your trusted companion for achieving success</string>
+    <string name="create_deck">Create new deck</string>
+    <string name="view_deck">View decks</string>
+</resources>
