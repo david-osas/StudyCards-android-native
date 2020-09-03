@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    general styles-->
+    <color name="white">#ffffff</color>
     <color name="colorPrimary">#00b8a9</color>
     <color name="colorPrimaryDark">#11999e</color>
     <color name="colorAccent">#fc5185</color>
+
+<!--    card styles-->
+    <color name="card_color">#80D3D3D3</color>
+
+<!--    create deck activity-->
+    <color name="button_dull">#80FC5185</color>
+
 </resources>

@@ -6,4 +6,101 @@
     android:layout_height="match_parent"
     tools:context=".CreateDeckActivity">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="389dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="15dp"
+        app:cardBackgroundColor="@color/card_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deckTitle">
+
+        <EditText
+            android:id="@+id/details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:gravity="center|start|top"
+            android:hint="@string/card_question"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine" />
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/questionButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="39dp"
+        android:background="@color/colorAccent"
+        android:onClick="switchQuestion"
+        android:text="@string/button_question"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toStartOf="@+id/answerButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <Button
+        android:id="@+id/answerButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="36dp"
+        android:background="@color/button_dull"
+        android:onClick="switchAnswer"
+        android:text="@string/button_answer"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/questionButton"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <Button
+        android:id="@+id/createCardButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="49dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/create_card"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionButton" />
+
+    <Button
+        android:id="@+id/submitDeckButton"
+        android:layout_width="389dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="78dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/submit_deck"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createCardButton" />
+
+    <EditText
+        android:id="@+id/deckTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:hint="@string/deck_name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
