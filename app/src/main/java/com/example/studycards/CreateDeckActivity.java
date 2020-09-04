@@ -77,7 +77,6 @@ public class CreateDeckActivity extends AppCompatActivity {
             Snackbar.make(view, "Create at least one card and set a deck title to submit current deck",Snackbar.LENGTH_SHORT).show();
         }
         new CountDownTimer(1500,500){
-
             @Override
             public void onTick(long millisUntilFinished) {
 
@@ -92,3 +91,4 @@ public class CreateDeckActivity extends AppCompatActivity {
     }
 
 }
+
