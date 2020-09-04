@@ -8,7 +8,7 @@
     <string name="view_deck">View decks</string>
 
 <!--    Create deck activity-->
-    <string name="deck_name">Enter name of deck</string>
+    <string name="deck_name">Enter title of deck</string>
     <string name="card_question">Enter question</string>
     <string name="card_answer">Enter answer</string>
     <string name="button_question">Question</string>
