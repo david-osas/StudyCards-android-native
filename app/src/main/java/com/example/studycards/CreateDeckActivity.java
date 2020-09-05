@@ -21,9 +21,9 @@ public class CreateDeckActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCreateDeckBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
-        viewModel = new ViewModelProvider(this).get(CreateDeckViewModel.class);
+        View root = binding.getRoot();
+        setContentView(root);
+        viewModel = new ViewModelProvider.AndroidViewModelFactory(getApplication()).create(CreateDeckViewModel.class);
         viewModel.state = "question";
 
     }
