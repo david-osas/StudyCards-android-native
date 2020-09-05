@@ -21,6 +21,7 @@ public class ViewDecksActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private int columnsNumber = 2;
     private ViewDecksViewModel viewModel;
+    private Decks[] data = new Decks[0];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +30,24 @@ public class ViewDecksActivity extends AppCompatActivity {
         View root = binding.getRoot();
         setContentView(root);
 
-
+        recyclerView = binding.decksRecyclerView;
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new GridLayoutManager(getApplicationContext(),columnsNumber);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new DecksRecyclerAdapter(data);
+        recyclerView.setAdapter(adapter);;
 
         viewModel = new ViewModelProvider.AndroidViewModelFactory(getApplication()).create(ViewDecksViewModel.class);
         Observer<Decks[]> deckObserver = new Observer<Decks[]>() {
             @Override
             public void onChanged(Decks[] decks) {
-                Resources resources = getResources();
                 if(decks.length != 0){
-                    recyclerView = binding.decksRecyclerView;
-                    recyclerView.setHasFixedSize(true);
-                    layoutManager = new GridLayoutManager(getApplicationContext(),columnsNumber);
-                    recyclerView.setLayoutManager(layoutManager);
-                    adapter = new DecksRecyclerAdapter(decks);
-                    recyclerView.setAdapter(adapter);;
-
+                    data = decks;
+                    adapter.notifyDataSetChanged();
                 }
                 String text = getString(R.string.view_decks_title, Integer.toString(decks.length));
                 binding.viewDecksTitle.setText(text);
+
             }
         };
         viewModel.getDecks().observe(this,deckObserver);

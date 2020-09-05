@@ -85,6 +85,7 @@ public class CreateDeckActivity extends AppCompatActivity {
             public void onFinish() {
                 Intent intent = new Intent(CreateDeckActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         }.start();
 
