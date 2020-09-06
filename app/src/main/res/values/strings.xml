@@ -19,4 +19,9 @@
     <!--    ViewDecks activity-->
     <string name="view_decks_title">Showing %s decks</string>
     <string name="card_number">number of cards: %s</string>
+
+<!--    Card activity-->
+    <string name="question">QUESTION</string>
+    <string name="answer">ANSWER</string>
+
 </resources>

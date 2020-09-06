@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DeckActivity"></activity>
+        <activity android:name=".CardActivity"></activity>
+        <activity android:name=".DeckActivity" />
         <activity android:name=".ViewDecksActivity" />
         <activity android:name=".CreateDeckActivity" />
         <activity android:name=".MainActivity">
