@@ -39,8 +39,6 @@ public class ViewDecksActivity extends AppCompatActivity {
         adapter = new DecksRecyclerAdapter(data);
         recyclerView.setAdapter(adapter);
 
-
-
         viewModel = new ViewModelProvider.AndroidViewModelFactory(getApplication()).create(ViewDecksViewModel.class);
         Observer<List<Decks>> deckObserver = new Observer<List<Decks>>() {
             @Override

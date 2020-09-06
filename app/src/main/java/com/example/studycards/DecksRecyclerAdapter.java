@@ -24,7 +24,7 @@ public class DecksRecyclerAdapter extends RecyclerView.Adapter<DecksRecyclerAdap
     private static List<Decks> decks;
 
     public static class DecksHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView deckTitle, cardNumber;
+        TextView deckTitle, cardNumber;
         CardView cardDeck;
         LinearLayout deckLayout;
 
