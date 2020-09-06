@@ -1,6 +1,7 @@
 package com.example.studycards;
 
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,16 +41,19 @@ public class DecksRecyclerAdapter extends RecyclerView.Adapter<DecksRecyclerAdap
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.deck_list_item,parent,false);
         DecksHolder viewHolder = new DecksHolder(view);
 
+
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull DecksRecyclerAdapter.DecksHolder holder, int position) {
-        Resources resources = Resources.getSystem();
         Decks item = decks[position];
+        int size = item.cardList.size();
+        String suffix = size == 1? size+" card": size+" cards";
+        String title = item.deckTitle.length() > 10? item.deckTitle.substring(0,10) + "...": item.deckTitle;
 
-        holder.deckTitle.setText(item.deckTitle);
-        holder.cardNumber.setText( resources.getString(R.string.card_number, Integer.toString(item.cardList.size())) );
+        holder.deckTitle.setText(title);
+        holder.cardNumber.setText(suffix);
     }
 
     @Override

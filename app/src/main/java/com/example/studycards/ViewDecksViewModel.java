@@ -24,7 +24,6 @@ public class ViewDecksViewModel extends AndroidViewModel {
     }
 
     public LiveData<Decks[]> getDecks(){
-        Log.i("osas", Integer.toString(decks.getValue().length));
         if(decks.getValue().length == 0){
             ConnectDB connectDB = new ConnectDB();
             connectDB.execute();
@@ -39,7 +38,6 @@ public class ViewDecksViewModel extends AndroidViewModel {
             AppDatabase appDB = AppDatabase.getInstance(getApplication());
             DeckDao deckDao = appDB.deckDao();
             Decks[] dbDecks = deckDao.getAllDecks();
-            Log.i("osas",dbDecks.toString());
 
             if(dbDecks.length != 0){
                 decks.postValue(dbDecks);

@@ -32,10 +32,11 @@ public class ViewDecksActivity extends AppCompatActivity {
 
         recyclerView = binding.decksRecyclerView;
         recyclerView.setHasFixedSize(true);
-        layoutManager = new GridLayoutManager(getApplicationContext(),columnsNumber);
+        layoutManager = new GridLayoutManager(this,columnsNumber);
+
         recyclerView.setLayoutManager(layoutManager);
         adapter = new DecksRecyclerAdapter(data);
-        recyclerView.setAdapter(adapter);;
+        recyclerView.setAdapter(adapter);
 
         viewModel = new ViewModelProvider.AndroidViewModelFactory(getApplication()).create(ViewDecksViewModel.class);
         Observer<Decks[]> deckObserver = new Observer<Decks[]>() {
@@ -43,7 +44,11 @@ public class ViewDecksActivity extends AppCompatActivity {
             public void onChanged(Decks[] decks) {
                 if(decks.length != 0){
                     data = decks;
-                    adapter.notifyDataSetChanged();
+                    RecyclerView.Adapter newAd = new DecksRecyclerAdapter(data);
+                    recyclerView.swapAdapter(newAd, false);
+
+                    Log.i("osas",data[0].cardList.get(0)[0]);
+                    //adapter.notifyDataSetChanged();
                 }
                 String text = getString(R.string.view_decks_title, Integer.toString(decks.length));
                 binding.viewDecksTitle.setText(text);
