@@ -6,6 +6,9 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Dao
 public interface DeckDao {
 
@@ -19,5 +22,5 @@ public interface DeckDao {
     void deleteDecks(Decks... decks);
 
     @Query("SELECT * FROM decks")
-    Decks[] getAllDecks();
+    List<Decks> getAllDecks();
 }

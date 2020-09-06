@@ -5,6 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -16,6 +17,6 @@ public class Decks {
     public String deckTitle;
 
     @ColumnInfo(name="card_list")
-    public ArrayList<String[]> cardList;
+    public List<String[]> cardList;
 
 }

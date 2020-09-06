@@ -12,9 +12,10 @@ import com.example.studycards.database.DeckDao;
 import com.example.studycards.database.Decks;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CreateDeckViewModel extends AndroidViewModel {
-    private ArrayList<String[]> cards = new ArrayList<>();
+    private List<String[]> cards = new ArrayList<>();
     public String state;
     public String question = "", answer = "", title;
     private Decks newDeck = new Decks();

@@ -6,13 +6,15 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import com.example.studycards.database.Decks;
 import com.example.studycards.databinding.ActivityViewDecksBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewDecksActivity extends AppCompatActivity {
     private ActivityViewDecksBinding binding;
@@ -21,6 +23,7 @@ public class ViewDecksActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private int columnsNumber = 2;
     private ViewDecksViewModel viewModel;
+    private List<Decks> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,23 +32,25 @@ public class ViewDecksActivity extends AppCompatActivity {
         View root = binding.getRoot();
         setContentView(root);
 
+        recyclerView = binding.decksRecyclerView;
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new GridLayoutManager(ViewDecksActivity.this,columnsNumber);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new DecksRecyclerAdapter(data);
+        recyclerView.setAdapter(adapter);
+
+
+
         viewModel = new ViewModelProvider.AndroidViewModelFactory(getApplication()).create(ViewDecksViewModel.class);
-        Observer<Decks[]> deckObserver = new Observer<Decks[]>() {
+        Observer<List<Decks>> deckObserver = new Observer<List<Decks>>() {
             @Override
-            public void onChanged(Decks[] decks) {
-                if(decks.length != 0){
-                    recyclerView = binding.decksRecyclerView;
-                    recyclerView.setHasFixedSize(true);
-                    layoutManager = new GridLayoutManager(ViewDecksActivity.this,columnsNumber);
+            public void onChanged(List<Decks> decks) {
+                data.clear();
+                data.addAll(decks);
+                adapter.notifyDataSetChanged();
 
-                    recyclerView.setLayoutManager(layoutManager);
-                    adapter = new DecksRecyclerAdapter(decks);
-                    recyclerView.setAdapter(adapter);
-
-                }
-                String text = getString(R.string.view_decks_title, Integer.toString(decks.length));
+                String text = getString(R.string.view_decks_title, Integer.toString(decks.size()));
                 binding.viewDecksTitle.setText(text);
-
             }
         };
         viewModel.getDecks().observe(this,deckObserver);

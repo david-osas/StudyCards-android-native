@@ -13,18 +13,21 @@ import com.example.studycards.database.AppDatabase;
 import com.example.studycards.database.DeckDao;
 import com.example.studycards.database.Decks;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ViewDecksViewModel extends AndroidViewModel {
-    private MutableLiveData<Decks[]> decks = new MutableLiveData<>();
+    private MutableLiveData<List<Decks>> decks = new MutableLiveData<>();
 
 
 
     public ViewDecksViewModel(@NonNull Application application) {
         super(application);
-        decks.setValue(new Decks[0]);
+        decks.setValue(new ArrayList<Decks>());
     }
 
-    public LiveData<Decks[]> getDecks(){
-        if(decks.getValue().length == 0){
+    public LiveData<List<Decks>> getDecks(){
+        if(decks.getValue().size() == 0){
             ConnectDB connectDB = new ConnectDB();
             connectDB.execute();
         }
@@ -37,9 +40,9 @@ public class ViewDecksViewModel extends AndroidViewModel {
         protected Void doInBackground(Void... voids) {
             AppDatabase appDB = AppDatabase.getInstance(getApplication());
             DeckDao deckDao = appDB.deckDao();
-            Decks[] dbDecks = deckDao.getAllDecks();
+            List<Decks> dbDecks = deckDao.getAllDecks();
 
-            if(dbDecks.length != 0){
+            if(dbDecks.size() != 0){
                 decks.postValue(dbDecks);
             }
 
