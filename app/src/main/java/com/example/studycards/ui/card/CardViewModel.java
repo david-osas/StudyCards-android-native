@@ -1,4 +1,4 @@
-package com.example.studycards;
+package com.example.studycards.ui.card;
 
 import androidx.lifecycle.ViewModel;
 

@@ -1,7 +1,6 @@
-package com.example.studycards;
+package com.example.studycards.ui.card;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -10,6 +9,7 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 
+import com.example.studycards.R;
 import com.example.studycards.databinding.ActivityCardBinding;
 
 public class CardActivity extends AppCompatActivity {

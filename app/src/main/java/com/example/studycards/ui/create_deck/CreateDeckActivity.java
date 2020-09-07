@@ -1,13 +1,13 @@
-package com.example.studycards;
+package com.example.studycards.ui.create_deck;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 
+import com.example.studycards.R;
 import com.example.studycards.databinding.ActivityCreateDeckBinding;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -23,8 +23,10 @@ public class CreateDeckActivity extends AppCompatActivity {
         binding = ActivityCreateDeckBinding.inflate(getLayoutInflater());
         View root = binding.getRoot();
         setContentView(root);
+
         viewModel = new ViewModelProvider.AndroidViewModelFactory(getApplication()).create(CreateDeckViewModel.class);
         viewModel.state = "question";
+        binding.details.setText(viewModel.question);
 
     }
 
@@ -60,10 +62,10 @@ public class CreateDeckActivity extends AppCompatActivity {
         setter();
         boolean isValid = viewModel.addCard();
         if(isValid){
-            Snackbar.make(view, "Card has been created",Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(view, R.string.snackbar_create_card,Snackbar.LENGTH_SHORT).show();
             binding.details.setText("");
         }else{
-            Snackbar.make(view, "Kindly enter both question and answer details to add card",Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(view, R.string.snackbar_create_card_error,Snackbar.LENGTH_SHORT).show();
         }
     }
 
@@ -72,22 +74,20 @@ public class CreateDeckActivity extends AppCompatActivity {
         viewModel.title = binding.deckTitle.getText().toString();
         boolean isValid = viewModel.addDeck();
         if(isValid){
-            Snackbar.make(view, "Deck has been submitted",Snackbar.LENGTH_SHORT).show();
-        }else{
-            Snackbar.make(view, "Create at least one card and set a deck title to submit current deck",Snackbar.LENGTH_SHORT).show();
-        }
-        new CountDownTimer(1000,500){
-            @Override
-            public void onTick(long millisUntilFinished) {
+            Snackbar.make(view, R.string.snackbar_add_deck,Snackbar.LENGTH_SHORT).show();
+            new CountDownTimer(1000,500){
+                @Override
+                public void onTick(long millisUntilFinished) {
 
-            }
-            @Override
-            public void onFinish() {
-                Intent intent = new Intent(CreateDeckActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }.start();
+                }
+                @Override
+                public void onFinish() {
+                    finish();
+                }
+            }.start();
+        }else{
+            Snackbar.make(view, R.string.snackbar_add_deck_error,Snackbar.LENGTH_SHORT).show();
+        }
 
     }
 

@@ -3,6 +3,7 @@ package com.example.studycards.database;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -15,12 +16,13 @@ public interface DeckDao {
     @Insert
     void insertDecks(Decks... decks);
 
-    @Update
-    void updateDecks(Decks... decks);
 
     @Delete
     void deleteDecks(Decks... decks);
 
     @Query("SELECT * FROM decks")
     List<Decks> getAllDecks();
+
+    @Query("UPDATE decks SET card_list= :list WHERE uid= :id")
+    void updateDecks(List<String[]> list, int id);
 }

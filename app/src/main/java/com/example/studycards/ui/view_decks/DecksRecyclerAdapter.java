@@ -1,9 +1,7 @@
-package com.example.studycards;
+package com.example.studycards.ui.view_decks;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.studycards.ui.deck.DeckActivity;
+import com.example.studycards.R;
 import com.example.studycards.database.Decks;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DecksRecyclerAdapter extends RecyclerView.Adapter<DecksRecyclerAdapter.DecksHolder> {

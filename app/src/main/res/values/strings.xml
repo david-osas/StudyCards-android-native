@@ -15,12 +15,21 @@
     <string name="button_answer">Answer</string>
     <string name="create_card">Create card</string>
     <string name="submit_deck">Submit deck</string>
+    <string name="snackbar_create_card">Card has been created</string>
+    <string name="snackbar_create_card_error">Kindly enter both question and answer details to add card</string>
+    <string name="snackbar_add_deck">Deck has been submitted</string>
+    <string name="snackbar_add_deck_error">Create at least one card and set a deck title to submit current deck</string>
 
     <!--    ViewDecks activity-->
     <string name="view_decks_title">Showing %s decks</string>
     <string name="card_number">number of cards: %s</string>
 
-<!--    Card activity-->
+<!--    AddCard activity-->
+    <string name="add_card_title">Add a new card to deck</string>
+    <string name="add_card_btn">Add card</string>
+    <string name="snackbar_add_card">Card has been added</string>
+
+    <!--    Card activity-->
     <string name="question">QUESTION</string>
     <string name="answer">ANSWER</string>
 

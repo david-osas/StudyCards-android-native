@@ -1,10 +1,14 @@
-package com.example.studycards;
+package com.example.studycards.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.studycards.R;
+import com.example.studycards.ui.create_deck.CreateDeckActivity;
+import com.example.studycards.ui.view_decks.ViewDecksActivity;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.studycards;
+package com.example.studycards.ui.view_decks;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
+import com.example.studycards.R;
 import com.example.studycards.database.Decks;
 import com.example.studycards.databinding.ActivityViewDecksBinding;
 
