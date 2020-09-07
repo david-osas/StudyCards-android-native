@@ -21,8 +21,15 @@ import java.util.List;
 
 public class DecksRecyclerAdapter extends RecyclerView.Adapter<DecksRecyclerAdapter.DecksHolder> {
     private static List<Decks> decks;
+    private static OnItemClickListener listener;
 
-    public static class DecksHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+        void onItemLongClick(int position);
+    }
+
+
+    public static class DecksHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         TextView deckTitle, cardNumber;
         CardView cardDeck;
         LinearLayout deckLayout;
@@ -35,23 +42,25 @@ public class DecksRecyclerAdapter extends RecyclerView.Adapter<DecksRecyclerAdap
             deckLayout = view.findViewById(R.id.deckLinearLayout);
 
             view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            Context context = v.getContext();
-            Decks item = decks.get(getAdapterPosition());
-            Intent intent = new Intent(context, DeckActivity.class);
-            intent.putExtra("title",item.deckTitle);
-            intent.putExtra("uid",item.uid);
-            intent.putExtra("cardList", (Serializable) item.cardList);
+            listener.onItemClick(getAdapterPosition());
+        }
 
-            context.startActivity(intent);
+
+        @Override
+        public boolean onLongClick(View v) {
+            listener.onItemLongClick(getAdapterPosition());
+            return true;
         }
     }
 
-    public DecksRecyclerAdapter(List<Decks> data){
+    public DecksRecyclerAdapter(List<Decks> data, OnItemClickListener listener){
         decks = data;
+        this.listener = listener;
     }
 
     @NonNull

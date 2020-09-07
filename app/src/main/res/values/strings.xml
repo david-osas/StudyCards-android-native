@@ -33,4 +33,10 @@
     <string name="question">QUESTION</string>
     <string name="answer">ANSWER</string>
 
+<!--    DeleteDialog fragment-->
+    <string name="delete_dialog_title">Delete</string>
+    <string name="delete_dialog_message">Are you sure you want to delete the selected item</string>
+    <string name="delete_dialog_positive">Yes</string>
+    <string name="delete_dialog_negative">No</string>
+
 </resources>

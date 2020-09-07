@@ -12,35 +12,44 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studycards.R;
 import com.example.studycards.ui.card.CardActivity;
+import com.example.studycards.ui.view_decks.DecksRecyclerAdapter;
 
 import java.util.List;
 
 public class CardsRecyclerAdapter extends RecyclerView.Adapter<CardsRecyclerAdapter.CardHolder> {
     private static List<String[]> cards;
+    private static CardsRecyclerAdapter.OnItemClickListener listener;
 
-    public static class CardHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+        void onItemLongClick(int position);
+    }
+
+    public static class CardHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
         TextView textView;
         public CardHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.cardItem);
 
             textView.setOnClickListener(this);
+            textView.setOnLongClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            Context context = v.getContext();
-            String[] item = cards.get(getAdapterPosition());
-            Intent intent = new Intent(context, CardActivity.class);
-            intent.putExtra("question",item[0]);
-            intent.putExtra("answer",item[1]);
-            context.startActivity(intent);
+            listener.onItemClick(getAdapterPosition());
+        }
 
+        @Override
+        public boolean onLongClick(View v) {
+            listener.onItemLongClick(getAdapterPosition());
+            return true;
         }
     }
 
-    public CardsRecyclerAdapter(List<String[]> data){
+    public CardsRecyclerAdapter(List<String[]> data, OnItemClickListener listener){
         cards = data;
+        this.listener = listener;
     }
 
     @NonNull
