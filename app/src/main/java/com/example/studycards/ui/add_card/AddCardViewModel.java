@@ -29,19 +29,15 @@ public class AddCardViewModel extends AndroidViewModel {
         }else{
             String[] values = {question, answer};
             cardList.add(values);
-            ConnectDB connectDB = new ConnectDB();
-            connectDB.execute();
+            AsyncTask.execute(new Runnable() {
+                @Override
+                public void run() {
+                    AppDatabase appDB = AppDatabase.getInstance(getApplication());
+                    DeckDao deckDao = appDB.deckDao();
+                    deckDao.updateDecks(cardList,uid);
+                }
+            });
             return true;
-        }
-    }
-
-    private class ConnectDB extends AsyncTask<Void,Void,Void> {
-        @Override
-        protected Void doInBackground(Void... voids) {
-            AppDatabase appDB = AppDatabase.getInstance(getApplication());
-            DeckDao deckDao = appDB.deckDao();
-            deckDao.updateDecks(cardList,uid);
-            return null;
         }
     }
 }

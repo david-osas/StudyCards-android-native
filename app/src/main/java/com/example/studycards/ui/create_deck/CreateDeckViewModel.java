@@ -47,22 +47,17 @@ public class CreateDeckViewModel extends AndroidViewModel {
         }else{
             newDeck.deckTitle = title;
             newDeck.cardList = cards;
-            ConnectDB connectDB = new ConnectDB();
-            connectDB.execute();
+            AsyncTask.execute(new Runnable() {
+                @Override
+                public void run() {
+                    AppDatabase appDB = AppDatabase.getInstance(getApplication());
+                    DeckDao deckDao = appDB.deckDao();
+                    deckDao.insertDecks(newDeck);
+                }
+            });
             return true;
         }
     }
-
-    private class ConnectDB extends AsyncTask<Void,Void,Void>{
-        @Override
-        protected Void doInBackground(Void... voids) {
-            AppDatabase appDB = AppDatabase.getInstance(getApplication());
-            DeckDao deckDao = appDB.deckDao();
-            deckDao.insertDecks(newDeck);
-            return null;
-        }
-    }
-
 }
 
 
