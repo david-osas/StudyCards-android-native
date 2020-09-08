@@ -45,5 +45,15 @@
     <string name="delete_dialog_message">Are you sure you want to delete the selected item</string>
     <string name="delete_dialog_positive">Yes</string>
     <string name="delete_dialog_negative">No</string>
+    
+<!--    Study mode notification -->
+    <string name="content_title">Study mode</string>
+    <string name="content_text">Hello there, here is study mode reminding you to make sure you study daily </string>
+    <string name="study_dialog_description">Initiate study mode to receive daily notifications reminding you to study. Click on start to enter study mode and stop to end study mode</string>
+    <string name="study_dialog_positive">Start</string>
+    <string name="study_dialog_negative">Stop</string>
+    <string name="study_dialog_dismiss">Dismiss</string>
+    <string name="study_snackbar_start">Study mode has been initiated</string>
+    <string name="study_snackbar_cancel">Study mode has been cancelled</string>
 
 </resources>

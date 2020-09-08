@@ -9,9 +9,10 @@ import android.view.View;
 
 import com.example.studycards.R;
 import com.example.studycards.databinding.ActivityCreateDeckBinding;
+import com.example.studycards.ui.BaseActivity;
 import com.google.android.material.snackbar.Snackbar;
 
-public class CreateDeckActivity extends AppCompatActivity {
+public class CreateDeckActivity extends BaseActivity {
 
     private ActivityCreateDeckBinding binding;
     private CreateDeckViewModel viewModel;

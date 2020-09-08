@@ -17,6 +17,7 @@ import android.view.View;
 import com.example.studycards.R;
 import com.example.studycards.database.Decks;
 import com.example.studycards.databinding.ActivityDeckBinding;
+import com.example.studycards.ui.BaseActivity;
 import com.example.studycards.ui.add_card.AddCardActivity;
 import com.example.studycards.ui.card.CardActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,7 +25,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.Serializable;
 import java.util.List;
 
-public class DeckActivity extends AppCompatActivity {
+public class DeckActivity extends BaseActivity {
     private ActivityDeckBinding binding;
     private DeckViewModel viewModel;
     private RecyclerView recyclerView;
@@ -112,7 +113,7 @@ public class DeckActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.delete_dialog_negative, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
+                        dialog.dismiss();
                     }
                 });
         return builder;

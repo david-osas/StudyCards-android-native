@@ -11,13 +11,14 @@ import android.view.View;
 
 import com.example.studycards.R;
 import com.example.studycards.databinding.ActivityAddCardBinding;
+import com.example.studycards.ui.BaseActivity;
 import com.example.studycards.ui.deck.DeckActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class AddCardActivity extends AppCompatActivity {
+public class AddCardActivity extends BaseActivity {
     private ActivityAddCardBinding binding;
     private AddCardViewModel viewModel;
 

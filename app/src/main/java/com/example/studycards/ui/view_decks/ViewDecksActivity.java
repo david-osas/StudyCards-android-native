@@ -17,13 +17,14 @@ import android.view.View;
 import com.example.studycards.R;
 import com.example.studycards.database.Decks;
 import com.example.studycards.databinding.ActivityViewDecksBinding;
+import com.example.studycards.ui.BaseActivity;
 import com.example.studycards.ui.deck.DeckActivity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewDecksActivity extends AppCompatActivity {
+public class ViewDecksActivity extends BaseActivity {
     private ActivityViewDecksBinding binding;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -106,7 +107,7 @@ public class ViewDecksActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.delete_dialog_negative, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
+                        dialog.dismiss();
                     }
                 });
         return builder;

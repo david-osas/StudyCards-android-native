@@ -11,8 +11,9 @@ import android.view.View;
 
 import com.example.studycards.R;
 import com.example.studycards.databinding.ActivityCardBinding;
+import com.example.studycards.ui.BaseActivity;
 
-public class CardActivity extends AppCompatActivity {
+public class CardActivity extends BaseActivity {
     private ActivityCardBinding binding;
     private CardViewModel viewModel;
 
