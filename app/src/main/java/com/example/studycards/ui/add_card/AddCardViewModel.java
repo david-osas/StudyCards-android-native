@@ -5,11 +5,9 @@ import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.room.ColumnInfo;
 
 import com.example.studycards.database.AppDatabase;
 import com.example.studycards.database.DeckDao;
-import com.example.studycards.database.Decks;
 
 import java.util.List;
 

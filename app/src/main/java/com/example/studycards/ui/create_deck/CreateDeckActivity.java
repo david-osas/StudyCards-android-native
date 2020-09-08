@@ -1,6 +1,5 @@
 package com.example.studycards.ui.create_deck;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;

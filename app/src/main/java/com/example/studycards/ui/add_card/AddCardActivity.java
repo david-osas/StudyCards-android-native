@@ -1,12 +1,10 @@
 package com.example.studycards.ui.add_card;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 
 import com.example.studycards.R;

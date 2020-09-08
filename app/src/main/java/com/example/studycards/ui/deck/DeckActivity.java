@@ -1,21 +1,17 @@
 package com.example.studycards.ui.deck;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.studycards.R;
-import com.example.studycards.database.Decks;
 import com.example.studycards.databinding.ActivityDeckBinding;
 import com.example.studycards.ui.BaseActivity;
 import com.example.studycards.ui.add_card.AddCardActivity;
