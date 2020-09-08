@@ -1,7 +1,7 @@
 package com.example.studycards.ui.view_decks;
 
 import android.content.Context;
-import android.content.Intent;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,16 +12,15 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.studycards.ui.deck.DeckActivity;
 import com.example.studycards.R;
 import com.example.studycards.database.Decks;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class DecksRecyclerAdapter extends RecyclerView.Adapter<DecksRecyclerAdapter.DecksHolder> {
     private static List<Decks> decks;
     private static OnItemClickListener listener;
+    private Context context;
 
     public interface OnItemClickListener {
         void onItemClick(int position);
@@ -66,6 +65,7 @@ public class DecksRecyclerAdapter extends RecyclerView.Adapter<DecksRecyclerAdap
     @NonNull
     @Override
     public DecksRecyclerAdapter.DecksHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        context = parent.getContext();
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.deck_list_item,parent,false);
         DecksHolder viewHolder = new DecksHolder(view);
 
@@ -75,8 +75,7 @@ public class DecksRecyclerAdapter extends RecyclerView.Adapter<DecksRecyclerAdap
     @Override
     public void onBindViewHolder(@NonNull DecksRecyclerAdapter.DecksHolder holder, int position) {
         Decks item = decks.get(position);
-        int size = item.cardList.size();
-        String suffix = size == 1? size+" card": size+" cards";
+        String suffix = context.getResources().getQuantityString(R.plurals.card_number,item.cardList.size(), item.cardList.size());
         String title = item.deckTitle.length() > 10? item.deckTitle.substring(0,10) + "...": item.deckTitle;
 
         holder.deckTitle.setText(title);

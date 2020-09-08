@@ -52,7 +52,7 @@ public class ViewDecksActivity extends AppCompatActivity {
                 data.addAll(decks);
                 adapter.notifyDataSetChanged();
 
-                String text = getString(R.string.view_decks_title, Integer.toString(decks.size()));
+                String text = getResources().getQuantityString(R.plurals.view_decks_title,data.size(),data.size());
                 binding.viewDecksTitle.setText(text);
             }
         };

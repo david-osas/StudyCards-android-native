@@ -1,6 +1,7 @@
 <resources>
     <!--    general strings-->
     <string name="app_name">StudyCards</string>
+    <string name="delete_tip">Tip💡: Long press an item to delete</string>
 
     <!--    Main activity-->
     <string name="welcome_text">Welcome to StudyCards, your trusted companion for achieving success</string>
@@ -21,8 +22,14 @@
     <string name="snackbar_add_deck_error">Create at least one card and set a deck title to submit current deck</string>
 
     <!--    ViewDecks activity-->
-    <string name="view_decks_title">Showing %s decks</string>
-    <string name="card_number">number of cards: %s</string>
+    <plurals name="view_decks_title">
+        <item quantity="one">Showing %d deck</item>
+        <item quantity="other">Showing %d decks</item>
+    </plurals>
+    <plurals name="card_number">
+        <item quantity="one">%d card</item>
+        <item quantity="other">%d cards</item>
+    </plurals>
 
 <!--    AddCard activity-->
     <string name="add_card_title">Add a new card to deck</string>
@@ -33,7 +40,7 @@
     <string name="question">QUESTION</string>
     <string name="answer">ANSWER</string>
 
-<!--    DeleteDialog fragment-->
+<!--    DeleteDialog -->
     <string name="delete_dialog_title">Delete</string>
     <string name="delete_dialog_message">Are you sure you want to delete the selected item</string>
     <string name="delete_dialog_positive">Yes</string>
