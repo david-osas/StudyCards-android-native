@@ -39,6 +39,8 @@
     <!--    Card activity-->
     <string name="question">QUESTION</string>
     <string name="answer">ANSWER</string>
+    <string name="reveal_answer">Reveal answer</string>
+    <string name="hide_answer">Hide answer</string>
 
 <!--    DeleteDialog -->
     <string name="delete_dialog_title">Delete</string>

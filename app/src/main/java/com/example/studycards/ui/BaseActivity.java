@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,15 +31,15 @@ import java.util.concurrent.TimeUnit;
 public class BaseActivity extends AppCompatActivity {
     protected SharedPreferences preferences;
     protected String tag = "study_mode";
-    protected final int startInterval = (int) TimeUnit.MINUTES.toSeconds(0);
-    protected final int endInterval = (int) TimeUnit.MINUTES.toSeconds(5);
+    protected final int startInterval = (int) TimeUnit.HOURS.toSeconds(23);
+    protected final int endInterval = (int) TimeUnit.HOURS.toSeconds(24);
     protected FirebaseJobDispatcher jobDispatcher;
     protected String CHANNEL_ID = "study_mode";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         createNotificationChannel();
 
         preferences = getApplicationContext().getSharedPreferences("study_mode",Context.MODE_PRIVATE);
@@ -106,7 +107,7 @@ public class BaseActivity extends AppCompatActivity {
                 .setRetryStrategy(RetryStrategy.DEFAULT_LINEAR)
                 .setRecurring(true)
                 .setReplaceCurrent(false)
-                .setTrigger(Trigger.executionWindow(0,60))
+                .setTrigger(Trigger.executionWindow(startInterval,endInterval))
                 .build();
 
         jobDispatcher.schedule(job);
@@ -126,6 +127,8 @@ public class BaseActivity extends AppCompatActivity {
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
             channel.setDescription(description);
+            channel.setLightColor(getColor(R.color.colorPrimary));
+            channel.enableLights(true);
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }

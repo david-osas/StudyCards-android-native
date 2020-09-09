@@ -44,4 +44,15 @@ public class CardActivity extends BaseActivity {
         binding.cardQuestionText.setText(spannableQuestion);
         binding.cardAnswerText.setText(spannableAnswer);
     }
+
+    public void toggleAnswer(View view){
+        if(binding.answerButton.getText().toString().equals(getString(R.string.reveal_answer))){
+            binding.cardAnswer.setVisibility(View.VISIBLE);
+            binding.answerButton.setText(R.string.hide_answer);
+        }else{
+            binding.answerButton.setText(R.string.reveal_answer);
+            binding.cardAnswer.setVisibility(View.INVISIBLE);
+        }
+
+    }
 }
