@@ -19,10 +19,8 @@ If view decks is clicked, the user is brought to a new screen that shows a list 
 
 Clicking on a deck item brings the user to a screen showing the list of cards within the selected deck and clicking the floating action button at the bottom right brings a new screen allowing the user to directly add a new card to the currently viewed deck, after which the user is redirected back to the cards list
 
-![cards](images/cards.jpg?raw=true)
+![cards](images/cards.jpg?raw=true)  ![add card](images/add_card.jpg?raw=true)
 
-
-![add card](images/add_card.jpg?raw=true)
 
 Long pressing a list item allows the user to delete the selected item
 
@@ -30,10 +28,8 @@ Long pressing a list item allows the user to delete the selected item
 
 Clicking on a card item directs the user to a new screen showing the question stored in the card and clicking the reveal answer button shows the answer saved with the question
 
-![check question](images/check_question.jpg?raw=true)
+![check question](images/check_question.jpg?raw=true)   ![check answer](images/check_answer.jpg?raw=true)
 
-
-![check answer](images/check_answer.jpg?raw=true)
 
 Lastly, by clicking on the icon in the app bar the user can initiate study mode which sends daily notifications reminding the user to study
 
