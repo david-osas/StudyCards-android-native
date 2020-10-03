@@ -3,7 +3,7 @@
 Welcome to the android native code for StudyCards, an application created to help people study. Users can create decks filled with cards and put a question and an answer in each card. They can later view any selected deck and quiz themselves on saved cards, thus helping them in their learning.
 Technologies uesd: Java, android studio and Room ORM
 
-#Application
+# Application
 
 Starting from the home screen a user has the choice to view saved decks or create a new deck
 
